@@ -38,16 +38,32 @@ public abstract class MisArrays {
 		}
 	Arrays.sort(array);
 	int medio = array.length/2;
-	if( array.length % 2 ==1) {
-		return array[medio];
+	if( array.length % 2 ==0) {
+				return (float) (array[array.length/2-1]+array[array.length/2])/2;
+
 		
 	}
 	else {
-		return (float) (array[medio-1]+array[medio])/2;
+		return array[array.length/2];
 	}
 	}
-	
+	/**
+	 * Mira cual es el maximo valor de un array
+	 * @param array el array de numeros
+	 * @return el valor maximo
+	 * @throws IllegalArgumentException  si el numero no esta entre 0 y 1'
+	 */
+    public static int maximaNota(int[] array) {
+        if (array.length == 0) {
+            throw new IllegalArgumentException("El array no tiene valores");
+        }
 
-	
+        int max = array[0];
+        for (int i = 1; i < array.length; i++) {
+            if (array[i] > max) {
+                max = array[i];
+            }
+        }
+        return max;
+    }
 }
-
