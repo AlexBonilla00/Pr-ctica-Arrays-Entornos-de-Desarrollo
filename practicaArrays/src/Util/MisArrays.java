@@ -54,6 +54,11 @@ public abstract class MisArrays {
 	 * @throws IllegalArgumentException  si el numero no esta entre 0 y 1'
 	 */
     public static int maximaNota(int[] array) {
+    	for(int i=0; i<array.length; i++) {
+    		if(array[i]<0 || array[i]>10) {
+    			throw new IllegalArgumentException("Debe ser los numeros entre 0 y 10");
+    		}
+    		}
         if (array.length == 0) {
             throw new IllegalArgumentException("El array no tiene valores");
         }
@@ -65,5 +70,31 @@ public abstract class MisArrays {
             }
         }
         return max;
+    }
+    
+    /**
+     * Enseña la minima nota de los numeros array
+     * @param array de numeros
+     * @return el valor minimo de los numeros array
+	 * @throws IllegalArgumentException  si el numero no esta entre 0 y 1'
+     */
+    public static int minimaNota(int[] array) {
+        for (int num : array) {
+            if (num < 0 || num > 10) {
+                throw new IllegalArgumentException("Debe ser los numeros entre 0 y 10");
+            }
+        }
+
+        if (array.length == 0) {
+            throw new IllegalArgumentException("El array no tiene numeros");
+        }
+
+        int min = array[0];
+        for (int i = 1; i < array.length; i++) {
+            if (array[i] < min) {
+                min = array[i];
+            }
+        }
+        return min;
     }
 }
